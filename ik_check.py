@@ -13,6 +13,7 @@ def calculate_checksum(ik_number: str) -> int:
     return checksum
 
 def validate_ik(ik_number: str) -> bool:
+    print("Testing: " + ik_number)
     if len(ik_number) != 9:
         return False
 
