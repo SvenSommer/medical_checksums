@@ -21,4 +21,16 @@ def validate_lanr(lanr: str) -> bool:
     calculated_checksum = calculate_checksum(lanr[:6])
     checksum = int(lanr[6])
 
+    if lanr[:6] == "444444":
+        print("Pseudoarztnummer im Rahmen des Reha-Entlassmanagements")
+        return True
+
+    if lanr[:6] == "999999":
+        if lanr[7:] == "00":
+            print("Hochschulambulanzen nach § 117 SGB V sowie psychiatrische und psychosomatische Institutsambulanzen nach § 118 SGB V und einige weitere Ambulanztypen")
+            return True
+        if lanr[7:] == "91":
+            print("Zahnärzte in zahnärztlichen Hochschulambulanzen")
+            return True
+
     return calculated_checksum == checksum
