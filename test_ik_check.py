@@ -1,8 +1,7 @@
 import unittest
 from ik_check import calculate_checksum, validate_ik
-from ik_values import positives
+from ik_values import positives, negatives
 
-negatives = [131280116, 131180067]
 
 class TestIKCheck(unittest.TestCase):
     def test_calculate_checksum(self):

@@ -1,5 +1,6 @@
 import unittest
 from lanr_check import calculate_checksum, validate_lanr
+from lanr_values import positives, negatives
 
 class TestLANRCheck(unittest.TestCase):
     def test_calculate_checksum(self):
@@ -18,7 +19,16 @@ class TestLANRCheck(unittest.TestCase):
         self.assertTrue(validate_lanr("999999900")) # Hochschulambulanzen nach § 117 SGB V sowie psychiatrische und psychosomatische Institutsambulanzen nach § 118 SGB V und einige weitere Ambulanztypen
         self.assertTrue(validate_lanr("999999991")) # Zahnärzte in zahnärztlichen Hochschulambulanzen
         self.assertTrue(validate_lanr("123456435"))
+        self.assertTrue(validate_lanr("000000000"))
+        self.assertTrue(validate_lanr("5555550012"))
         self.assertFalse(validate_lanr("123456621"))
+
+    def test_is_valid_lanr(self):
+        for validIk in positives:
+            self.assertTrue(validate_lanr(str(validIk)))
+
+        for invalidIk in negatives:
+            self.assertFalse(validate_lanr(str(invalidIk)))
 
 
 if __name__ == '__main__':
