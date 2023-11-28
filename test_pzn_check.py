@@ -17,5 +17,13 @@ class TestPZNCheck(unittest.TestCase):
        self.assertTrue(validate_pzn("04890568"))
        self.assertFalse(validate_pzn("12345671"))
 
+    def test_pzn(self):
+      # self.assertTrue(validate_pzn("444444411"))
+      # self.assertTrue(validate_pzn("999999900"))
+      # self.assertTrue(validate_pzn("555555"))
+      # self.assertTrue(validate_pzn("000000000"))
+     # self.assertTrue(validate_pzn("999999991"))
+       self.assertTrue(validate_pzn("333333300"))
+
 if __name__ == '__main__':
     unittest.main()
